@@ -18,7 +18,7 @@ interface Props extends Food {
   mealId: number;
 }
 
-const Food: React.FC<Props> = ({ foodId, mealId, name, amount, carbs, protein, fats }) => {
+const Food: React.FC<Props> = ({ foodId, mealId, name, amount, alcohol, carbs, protein, fats }) => {
   const [focus, setFocus] = React.useState(false);
   return (
     <Row>
@@ -38,6 +38,13 @@ const Food: React.FC<Props> = ({ foodId, mealId, name, amount, carbs, protein, f
       <Input
         name="amount"
         value={amount}
+        onChange={store.updateFood(mealId, foodId)}
+        type="number"
+        autocomplete={false}
+      />
+      <Input
+        name="alcohol"
+        value={alcohol}
         onChange={store.updateFood(mealId, foodId)}
         type="number"
         autocomplete={false}

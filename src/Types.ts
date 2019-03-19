@@ -4,6 +4,7 @@ export type Food = {
   carbs: number;
   fats: number;
   protein: number;
+  alcohol: number;
 };
 
 export type Meal = {

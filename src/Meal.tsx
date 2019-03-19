@@ -37,26 +37,29 @@ const sum = foods =>
     (collection, food) => {
       const amount = parseInt(food.amount);
       const percent = amount / 100;
+      const alcohol = parseFloat(food.alcohol) * percent;
       const carbs = parseFloat(food.carbs) * percent;
       const fats = parseFloat(food.fats) * percent;
       const protein = parseFloat(food.protein) * percent;
       return [
-        collection[0] + carbs * 4 + fats * 9 + protein * 4,
+        collection[0] + carbs * 4 + fats * 9 + protein * 4 + alcohol * 7,
         collection[1] + amount,
-        collection[2] + carbs,
-        collection[3] + fats,
-        collection[4] + protein,
+        collection[2] + alcohol,
+        collection[3] + carbs,
+        collection[4] + fats,
+        collection[5] + protein,
       ];
     },
-    [0, 0, 0, 0, 0]
+    [0, 0, 0, 0, 0, 0, 0]
   );
 
-const Meal: React.SFC<Meal> = observer(({ mealId, name, foods }) => (
+const Meal: React.FC<Meal> = observer(({ mealId, name, foods }) => (
   <Foods>
     <Input placeholder="Meal name" />
     <Header>
       <Label>KCAL</Label>
       <Label>grams</Label>
+      <Label>alcohol</Label>
       <Label>carbs</Label>
       <Label>fats</Label>
       <Label>protein</Label>

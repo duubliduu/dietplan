@@ -1,7 +1,7 @@
 import { action, computed, observable } from "mobx";
 import { Meal } from "./Types";
 
-const food = { name: "", amount: 100, carbs: 0, fats: 0, protein: 0 };
+const food = { name: "", amount: 100, carbs: 0, fats: 0, protein: 0, alcohol:0 };
 const meal = { name: "", foods: [food] };
 
 class Store {
@@ -71,6 +71,7 @@ class Store {
       carbs: Math.round(result.carbohydrate),
       fats: Math.round(result.fat),
       protein: Math.round(result.protein),
+      alcohol: Math.round(result.alcohol),
     };
   }
 }
